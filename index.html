@@ -6,6 +6,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
+       header {
+       display: flex;  /* permet de mettre la liste sur la même ligne que le menu burger !*/
+            align-items: center;
+           
+        }
+
+        header .burger span{
+        width: 50px;
+        height: 5px;
+        margin: 3px 0;
+        background: #98ddca;
+        display: block; /* Afficher le burger si on ne met pas cette ligne on ne voit pas le menu !!*/
+        cursor: pointer;
+       }
+
+        header ul {
+            display : flex;
+            list-style: none;
+        }
+
+        header ul li {
+            margin-right: 20px;
+        } 
+      
+
+
         .diaporama{
             width: 500px;
         }
@@ -20,9 +46,32 @@
         .miniatures img{
            width : 25%;
         }
+
+        /* Menu Burger */
+      .masquer{ 
+       display : none;
+       }
+
     </style>
 </head>
 <body>
+
+    <header>
+        <div class="burger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>    
+        <ul>
+            <li>Achat</li>
+            <li>Vente</li>
+            <li>Publicité</li>
+            <li>Nous contacter</li>
+            <li>Adresse</li>
+        </ul>
+       
+    </header>
+
     <h1>Bonjour je découvre git</h1>
     <div class="diaporama">
         <header>
@@ -42,6 +91,12 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous"></script>
 
     <script>
+
+      $(".burger").on("click", function()
+        {
+            $("header ul").toggleClass("masquer")
+        })
+
         for(let i = 0 ; i < 4 ; i++){
             $(".miniatures img").eq(i).on("click", function()
             {
